@@ -37,7 +37,10 @@ function PaymentForm() {
         try {
             const response = await fetch('http://localhost:3001/payment/create', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-webhook-signature': 'topSecret'
+                },
                 body: JSON.stringify(data)
             });
 
